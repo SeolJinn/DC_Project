@@ -4,11 +4,16 @@ import timing.ITimer;
 
 public class SleepBenchmark implements IBenchmark {
     private long sleepTime;
+    private volatile boolean running = true;
 
     @Override
     public void run() {
+        running = true;
         try {
-            Thread.sleep(sleepTime);
+            for(int i=0; i<sleepTime && running; i++)
+            {
+                Thread.sleep(1);
+            }
         } catch (InterruptedException e) {
             // Ignore interruption
         }
@@ -21,6 +26,7 @@ public class SleepBenchmark implements IBenchmark {
         } else {
             throw new IllegalArgumentException("Expected a long value for sleep time.");
         }
+        running = true;
     }
 
     @Override
@@ -30,7 +36,7 @@ public class SleepBenchmark implements IBenchmark {
 
     @Override
     public void cancel() {
-        // Not needed for this benchmark
+        running = false;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package logging;
 
+//NOT IMPLEMENTED
+
 public class DatabaseLogger implements ILogger {
     private String connectionString;
     private String username;
@@ -24,6 +26,16 @@ public class DatabaseLogger implements ILogger {
 
     @Override
     public void write(Object... values) {
+
+    }
+
+    @Override
+    public void write(long value, TimeUnit unit) {
+
+    }
+
+    @Override
+    public void write(String string, long value, TimeUnit unit) {
 
     }
 

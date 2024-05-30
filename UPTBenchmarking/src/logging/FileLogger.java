@@ -33,6 +33,20 @@ public class FileLogger implements ILogger {
     }
 
     @Override
+    public void write(long value, TimeUnit unit) {
+        long convertedValue = TimeUnit.convert(value, TimeUnit.NANO, unit);
+        writer.println(convertedValue + " " + unit.name());
+        writer.flush();
+    }
+
+    @Override
+    public void write(String string, long value, TimeUnit unit) {
+        long convertedValue = TimeUnit.convert(value, TimeUnit.NANO, unit);
+        writer.println(string + " " + convertedValue + " " + unit.name());
+        writer.flush();
+    }
+
+    @Override
     public void close() {
         writer.close();
     }

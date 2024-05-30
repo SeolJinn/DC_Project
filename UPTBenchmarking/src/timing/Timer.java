@@ -27,6 +27,8 @@ public class Timer implements ITimer {
             this.state = TimerState.STOPPED;
             return this.elapsedTime;
         }
+        if(this.state == TimerState.STOPPED || this.state == TimerState.PAUSED)
+            return this.elapsedTime;
         return -1;
     }
 
@@ -44,7 +46,7 @@ public class Timer implements ITimer {
             long currentTime = System.nanoTime();
             this.elapsedTime += currentTime - this.startTime;
             this.state = TimerState.PAUSED;
-            return this.elapsedTime;
+            return currentTime-this.startTime;
         }
         return -1;
     }

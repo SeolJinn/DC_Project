@@ -22,6 +22,19 @@ public class ConsoleLogger implements ILogger {
     }
 
     @Override
+    public void write(long value, TimeUnit unit) {
+        long convertedValue = TimeUnit.convert(value, TimeUnit.NANO, unit);
+        System.out.println(convertedValue + " " + unit.name());
+    }
+
+    @Override
+    public void write(String string, long value, TimeUnit unit) {
+        long convertedValue = TimeUnit.convert(value, TimeUnit.NANO, unit);
+        System.out.println(string + " " + convertedValue + " " + unit.name());
+    }
+
+
+    @Override
     public void close() {
         // No resources to close for console logging
     }

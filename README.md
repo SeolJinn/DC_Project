@@ -9,7 +9,7 @@
 - [Crasovan Alexandru]
 
 ### Achievement:
-We proudly completed the Capture The Flag (CTF), and as such we have only done the first 3 Assignments.
+We proudly completed the Capture The Flag (CTF) using an ARM Emulator, and as such we have only done the first 3 Assignments.
 
 ---
 

@@ -1,4 +1,4 @@
-#DC Benchmarking Project
+# DC Benchmarking Project
 
 ### Team Members:
 - [Manolache Alexandru]
